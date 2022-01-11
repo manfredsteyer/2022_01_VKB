@@ -1,0 +1,69 @@
+<div class="card">
+
+    <div class="header">
+        <h2 class="title">Flight Search</h2>
+    </div>
+    <div class="content">
+    
+    <form>
+    
+        <div class="form-group">
+            <label>From:</label>
+            <input name="from" [(ngModel)]="from" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>To:</label>
+            <input name="to" [(ngModel)]="to" class="form-control">
+        </div>
+    
+        <div class="form-group">
+            <button 
+                (click)="search()"
+                [disabled]="!from || !to"
+                class="btn btn-default">Search</button>
+            </div>
+    </form>
+    
+    </div>
+    </div>
+    
+    
+    <div class="card">
+    
+        <table class="table table-contensed" *ngIf="flights.length > 0">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+
+            </thead>
+            
+            <!--
+                [ngStyle]="{ 'background-color': (flight === selectedFlight) ? 'orange' : 'white'}"
+            -->
+            <tr *ngFor="let flight of flights" [ngClass]="{ 'active': flight === selectedFlight }">
+                <td>{{flight.id}}</td>
+                <td>{{flight.from}}</td>
+                <td>{{flight.to}}</td>
+                <td>{{flight.date | date:'dd.MM.yyyy HH:mm'}}</td>
+                <td>{{flight.delayed}}</td>
+
+                <td>
+                    <a (click)="select(flight)">Select</a> 
+                </td>
+            </tr>
+        </table>
+    
+    </div>
+    
+    <!-- Warenkorb für Bescheidene -->
+    <div class="card">
+        <div class="content">
+            <pre>{{selectedFlight | json}}</pre>
+        </div>
+    </div>
+    
