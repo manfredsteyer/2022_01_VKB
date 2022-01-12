@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { DummyFlightService, FlightService } from '../flight.service';
-import { Flight } from '../model/flights';
+import { DummyFlightService, FlightService } from '../../flight.service';
+import { Flight } from '../../model/flights';
 
 
 @Component({
@@ -16,6 +16,11 @@ export class FlightSearchComponent implements OnInit {
   to: string;
   flights: Flight[] = [];
   selectedFlight: Flight;
+
+  basket = {
+    "3": true,
+    "5": true
+  };
 
   constructor(private flightService: FlightService) { }
 
