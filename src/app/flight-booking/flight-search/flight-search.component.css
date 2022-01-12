@@ -1,3 +1,11 @@
 .active {
     background-color: orange;
 }
+
+input.ng-invalid {
+    border-left:pink 5px solid;
+}
+
+input.ng-valid {
+    border-left:yellowgreen 5px solid;
+}
