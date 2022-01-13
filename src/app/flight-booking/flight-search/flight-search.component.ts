@@ -28,6 +28,10 @@ export class FlightSearchComponent implements OnInit {
   }
 
   search(): void {
+
+    if (!this.from || !this.to) {
+      return;
+    }
     
     this
     .flightService

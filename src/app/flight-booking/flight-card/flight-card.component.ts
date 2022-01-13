@@ -14,13 +14,17 @@ export class FlightCardComponent implements OnInit, OnChanges {
 
   constructor() { }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['selected']) {
-      
-    }
-  }
+
 
   ngOnInit(): void {
+    // Initiales Property Binding ist gerade erfolgt!
+    // setTimeout(() => this.selectedChange.next(true), 0);
+    
+  }
+
+
+  ngOnChanges(changes: SimpleChanges): void {
+    // setTimeout(() => this.selectedChange.next(!this.selected), 0);
   }
 
   select(): void {
